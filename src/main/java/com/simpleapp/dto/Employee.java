@@ -1,8 +1,8 @@
 package com.simpleapp.dto;
 
 
-import java.sql.Date;
 import java.text.ParseException;
+import java.util.Date;
 import java.util.Objects;
 
 public class Employee {
@@ -36,6 +36,7 @@ public class Employee {
         this.gender = gender;
         this.dateOfBirth = dateOfBirth;
     }
+
 
     public Long getEmployeeId() {
         return employeeId;
@@ -79,9 +80,9 @@ public class Employee {
 
     public String getGender() {
         String gen = "";
-        if(gender.toString().toUpperCase().equals("MALE"))
+        if(gender == Gender.MALE)
             gen = "MALE";
-        if(gender.toString().toUpperCase().equals("FEMALE"))
+        if(gender == Gender.FEMALE)
             gen = "FEMALE";
         return gen;
     }
@@ -134,4 +135,7 @@ public class Employee {
                 '}';
     }
 
+
 }
+
+

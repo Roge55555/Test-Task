@@ -24,7 +24,7 @@
             <td>${employee.departmentId}</td>
             <td>${employee.jobTitle}</td>
             <td>${employee.gender}</td>
-            <td>${employee.dateOfBirth?string('dd.MM.yyyy')}</td>
+            <td>${employee.dateOfBirth}</td>
             <td><a href="/delete/${employee.employeeId}">Delete</a></td>
             <td><a href="/update/${employee.employeeId}">Update</a></td>
         </tr>

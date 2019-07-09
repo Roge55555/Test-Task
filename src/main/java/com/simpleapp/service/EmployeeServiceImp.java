@@ -29,8 +29,9 @@ public class EmployeeServiceImp implements EmployeeService {
     }
 
     @Override
-    public void update(Employee employee) {
+    public Employee update(Employee employee) {
         employeeDao.update(employee);
+        return employee;
     }
 
     @Override
