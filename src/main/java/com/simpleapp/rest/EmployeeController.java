@@ -2,7 +2,6 @@ package com.simpleapp.rest;
 
 import com.simpleapp.dto.Employee;
 import com.simpleapp.service.EmployeeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,8 +13,11 @@ import java.util.List;
 @RequestMapping("/")
 public class EmployeeController {
 
-    @Autowired
-    public EmployeeService employeeService;
+    private EmployeeService employeeService;
+
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
 
     @GetMapping("/employees")
     public List<Employee> getAllEmployees(){
@@ -32,7 +34,7 @@ public class EmployeeController {
         employeeService.add(employee);
 
         HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);//.EXPECTATION_FAILED
     }
 
     @PostMapping("/updateEmployee")

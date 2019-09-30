@@ -18,7 +18,7 @@ import java.util.List;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.simpleapp.rest")
+@ComponentScan(basePackages = "com.simpleapp")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean

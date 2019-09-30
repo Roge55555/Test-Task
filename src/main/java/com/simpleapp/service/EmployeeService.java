@@ -1,22 +1,38 @@
 package com.simpleapp.service;
 
+import com.simpleapp.dao.EmployeeDao;
 import com.simpleapp.dto.Employee;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public interface EmployeeService {
+@Service
+public class EmployeeService {
 
-    //create
-    void add(Employee employee);
+    private EmployeeDao employeeDao;
 
-    //read
-    List<Employee> findAll();
+    public EmployeeService(EmployeeDao employeeDao) {
+        this.employeeDao = employeeDao;
+    }
 
-    Employee getById(Long id);
+    public void add(Employee employee) {
+        employeeDao.add(employee);
+    }
 
-    //update
-    Employee update(Employee employee);
+    public List<Employee> findAll() {
+        return employeeDao.findAll();
+    }
 
-    //delete
-    void delete(Long id);
+    public Employee getById(Long id) {
+        return employeeDao.getById(id);
+    }
+
+    public Employee update(Employee employee) {
+        employeeDao.update(employee);
+        return employee;
+    }
+
+    public void delete(Long id) {
+        employeeDao.delete(id);
+    }
 }

@@ -2,9 +2,7 @@ package com.simpleapp.config;
 
 
 import com.simpleapp.dao.EmployeeDao;
-import com.simpleapp.dao.EmployeeDaoImpl;
 import com.simpleapp.service.EmployeeService;
-import com.simpleapp.service.EmployeeServiceImp;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -40,11 +38,6 @@ public class AppConfiguration {
 
     @Bean
     public EmployeeDao getEmployeeDao() {
-        return new EmployeeDaoImpl(getJdbcTemplate());
-    }
-
-    @Bean
-    public EmployeeService getEmployeeService() {
-        return new EmployeeServiceImp();
+        return new EmployeeDao(getJdbcTemplate());
     }
 }
