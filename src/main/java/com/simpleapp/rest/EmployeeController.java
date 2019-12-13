@@ -1,10 +1,9 @@
 package com.simpleapp.rest;
 
-import com.simpleapp.dto.Employee;
+import com.simpleapp.Exceptions.NoSuchIdException;
+import com.simpleapp.entity.Employee;
 import com.simpleapp.service.EmployeeService;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +13,8 @@ import java.util.List;
 public class EmployeeController {
 
     private EmployeeService employeeService;
+
+//    private EmployeeRepository employeeRepository;
 
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
@@ -25,29 +26,35 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees/{id}")
-    public Employee getById(@PathVariable("id") Long id) {
-        return employeeService.getById(id);
+    @ResponseStatus(HttpStatus.FOUND)
+    public Employee getById(@PathVariable("id") Long id) throws NoSuchIdException {
+//        try {
+            return employeeService.getById(id);
+//        }catch (Exception ex){
+//            throw new NoSuchIdException(id, "show");
+//        }
     }
 
     @PostMapping("/addEmployee")
-    public ResponseEntity<Void> addEmployee(@RequestBody Employee employee) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addEmployee(@RequestBody Employee employee) {
         employeeService.add(employee);
-
-        HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);//.EXPECTATION_FAILED
     }
 
     @PostMapping("/updateEmployee")
-    public ResponseEntity<Void> updateEmployee(@RequestBody Employee employee) {
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void updateEmployee(@RequestBody Employee employee) {
         employeeService.update(employee);
-
-        HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<Void>(headers, HttpStatus.ACCEPTED);
-
     }
 
     @PostMapping("/delete/{id}")
-    public void deleteEmployee(@PathVariable("id") Long id){
-        employeeService.delete(id);
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteEmployee(@PathVariable("id") Long id) {               //try to find way for exception
+//        try {
+            employeeService.delete(id);
+//        }catch (Exception ex){
+//            throw new NoSuchIdException(id, "delete");
+//        }
+
     }
 }

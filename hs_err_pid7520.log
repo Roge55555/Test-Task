@@ -1,0 +1,178 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 134217728 bytes for Failed to commit area from 0x0000000080e00000 to 0x0000000088e00000 of length 134217728.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (t:/workspace/open/src/hotspot/os/windows/os_windows.cpp:3221), pid=7520, tid=12348
+#
+# JRE version:  (10.0.2+13) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (10.0.2+13, mixed mode, aot, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:TieredStopAtLevel=1 -Xverify:none -Dspring.output.ansi.enabled=always -Dcom.sun.management.jmxremote -Dspring.jmx.enabled=true -Dspring.liveBeansView.mbeanDomain -Dspring.application.admin.enabled=true -javaagent:R:\IntelliJ IDEA 2019.1.3\lib\idea_rt.jar=60704:R:\IntelliJ IDEA 2019.1.3\bin -Dfile.encoding=UTF-8 com.simpleapp.SpringBootApp
+
+Host: AMD A8-6600K APU with Radeon(tm) HD Graphics   , 4 cores, 7G,  Windows 10 , 64 bit Build 18362 (10.0.18362.329)
+Time: Tue Dec 10 07:54:48 2019 Aaea?onu (ceia) elapsed time: 0 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000223bc334000):  JavaThread "Unknown thread" [_thread_in_vm, id=12348, stack(0x000000af6a200000,0x000000af6a300000)]
+
+Stack: [0x000000af6a200000,0x000000af6a300000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x5a01a9]
+V  [jvm.dll+0x6bcf31]
+V  [jvm.dll+0x6be126]
+V  [jvm.dll+0x6be7b3]
+V  [jvm.dll+0x234978]
+V  [jvm.dll+0x59dac4]
+V  [jvm.dll+0x592825]
+V  [jvm.dll+0x2f632b]
+V  [jvm.dll+0x2f6295]
+V  [jvm.dll+0x2f6172]
+V  [jvm.dll+0x2f8366]
+V  [jvm.dll+0x344293]
+V  [jvm.dll+0x3449a6]
+V  [jvm.dll+0x344393]
+V  [jvm.dll+0x2c4628]
+V  [jvm.dll+0x2c5771]
+V  [jvm.dll+0x69d1db]
+V  [jvm.dll+0x69e9fc]
+V  [jvm.dll+0x3519e9]
+V  [jvm.dll+0x6856a2]
+V  [jvm.dll+0x3ba0c3]
+V  [jvm.dll+0x3bc261]
+C  [java.exe+0x3531]
+C  [java.exe+0xe1af]
+C  [java.exe+0xe356]
+C  [KERNEL32.DLL+0x17bd4]
+C  [ntdll.dll+0x6ced1]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00000223bc2321f0, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x00000223bc34c000 GCTaskThread "GC Thread#0" [stack: 0x000000af6a300000,0x000000af6a400000] [id=12812]
+  0x00000223bc34d800 GCTaskThread "GC Thread#1" [stack: 0x000000af6a400000,0x000000af6a500000] [id=14072]
+  0x00000223bc34f000 GCTaskThread "GC Thread#2" [stack: 0x000000af6a500000,0x000000af6a600000] [id=16672]
+  0x00000223bc351800 GCTaskThread "GC Thread#3" [stack: 0x000000af6a600000,0x000000af6a700000] [id=13396]
+  0x00000223bc3bc000 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000af6a700000,0x000000af6a800000] [id=16788]
+  0x00000223bc3bf000 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000af6a800000,0x000000af6a900000] [id=7544]
+
+[error occurred during error reporting (printing all threads), id 0xe0000002]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00000223bc3310b0] Heap_lock - owner thread: 0x00000223bc334000
+
+Heap address: 0x0000000080e00000, size: 2034 MB, Compressed Oops mode: Non-zero based: 0x0000000080e00000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff7a4680000 - 0x00007ff7a46be000 	C:\Program Files\Java\jdk-10.0.2\bin\java.exe
+0x00007ffbcffe0000 - 0x00007ffbd01d0000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffbcf710000 - 0x00007ffbcf7c2000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffbcdad0000 - 0x00007ffbcdd73000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffbce480000 - 0x00007ffbce523000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffbce9d0000 - 0x00007ffbcea6e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffbcf200000 - 0x00007ffbcf297000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffbcf2a0000 - 0x00007ffbcf3c0000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffbce6e0000 - 0x00007ffbce874000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffbcd170000 - 0x00007ffbcd191000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffbce450000 - 0x00007ffbce476000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffbccfd0000 - 0x00007ffbcd164000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffbcdff0000 - 0x00007ffbce08e000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffbcdd80000 - 0x00007ffbcde7a000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffbc15a0000 - 0x00007ffbc1825000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.476_none_e6c4b11b130f2595\COMCTL32.dll
+0x00007ffbce100000 - 0x00007ffbce436000 	C:\WINDOWS\System32\combase.dll
+0x00007ffbc7000000 - 0x00007ffbc700a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffbcd1a0000 - 0x00007ffbcd220000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffbcea70000 - 0x00007ffbcea9e000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffbb3930000 - 0x00007ffbb3a1f000 	C:\Program Files\Java\jdk-10.0.2\bin\msvcr120.dll
+0x00007ffbaa580000 - 0x00007ffbaa626000 	C:\Program Files\Java\jdk-10.0.2\bin\msvcp120.dll
+0x0000000062460000 - 0x0000000062ed0000 	C:\Program Files\Java\jdk-10.0.2\bin\server\jvm.dll
+0x00007ffbce590000 - 0x00007ffbce598000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffbc9420000 - 0x00007ffbc9429000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffbce090000 - 0x00007ffbce0ff000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffbc34c0000 - 0x00007ffbc34e4000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffbc3380000 - 0x00007ffbc33ad000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ffbcda80000 - 0x00007ffbcdaca000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x00007ffbc8f30000 - 0x00007ffbc8f3f000 	C:\Program Files\Java\jdk-10.0.2\bin\verify.dll
+0x00007ffbbc570000 - 0x00007ffbbc764000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffbb6260000 - 0x00007ffbb628a000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffbc6df0000 - 0x00007ffbc6e17000 	C:\Program Files\Java\jdk-10.0.2\bin\java.dll
+0x00007ffbbc280000 - 0x00007ffbbc2aa000 	C:\Program Files\Java\jdk-10.0.2\bin\instrument.dll
+0x00007ffbc77e0000 - 0x00007ffbc77f6000 	C:\Program Files\Java\jdk-10.0.2\bin\zip.dll
+0x00007ffbc8f00000 - 0x00007ffbc8f0a000 	C:\Program Files\Java\jdk-10.0.2\bin\jimage.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-10.0.2\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.476_none_e6c4b11b130f2595;C:\Program Files\Java\jdk-10.0.2\bin\server
+
+VM Arguments:
+jvm_args: -XX:TieredStopAtLevel=1 -Xverify:none -Dspring.output.ansi.enabled=always -Dcom.sun.management.jmxremote -Dspring.jmx.enabled=true -Dspring.liveBeansView.mbeanDomain -Dspring.application.admin.enabled=true -javaagent:R:\IntelliJ IDEA 2019.1.3\lib\idea_rt.jar=60704:R:\IntelliJ IDEA 2019.1.3\bin -Dfile.encoding=UTF-8 
+java_command: com.simpleapp.SpringBootApp
+java_class_path (initial): C:\Users\roge5\Dropbox\Godl\Test-Task_1.1\target\classes;C:\Users\roge5\.m2\repository\org\hibernate\hibernate-entitymanager\5.4.10.Final\hibernate-entitymanager-5.4.10.Final.jar;C:\Users\roge5\.m2\repository\org\jboss\logging\jboss-logging\3.3.2.Final\jboss-logging-3.3.2.Final.jar;C:\Users\roge5\.m2\repository\org\hibernate\hibernate-core\5.4.10.Final\hibernate-core-5.4.10.Final.jar;C:\Users\roge5\.m2\repository\org\javassist\javassist\3.24.0-GA\javassist-3.24.0-GA.jar;C:\Users\roge5\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\roge5\.m2\repository\org\jboss\jandex\2.1.1.Final\jandex-2.1.1.Final.jar;C:\Users\roge5\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\roge5\.m2\repository\javax\activation\javax.activation-api\1.2.0\javax.activation-api-1.2.0.jar;C:\Users\roge5\.m2\repository\javax\xml\bind\jaxb-api\2.3.1\jaxb-api-2.3.1.jar;C:\Users\roge5\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.1\jaxb-runtime-2.3.1.jar;C:\Users\roge5\.m2\repository\org\glassfish\jaxb\txw2\2.3.1\txw2-2.3.1.jar;C:\Users\roge5\.m2\repository\com\sun\istack\istack-commons-runtime\3.0.7\istack-commons-runtime-3.0.7.jar;C:\Users\roge5\.m2\repository\org\jvnet\staxex\stax-ex\1.8\stax-ex-1.8.jar;C:\Users\roge5\.m2\repository\com\sun\xml\fastinfoset\FastInfoset\1.2.15\FastInfoset-1.2.15.jar;C:\Users\roge5\.m2\repository\org\dom4j\dom4j\2.1.1\dom4j-2.1.1.jar;C:\Users\roge5\.m2\repository\org\hibernate\common\hibernate-commons-annotations\5.1.0.Final\hibernate-commons-annotations-5.1.0.Final.jar;C:\Users\roge5\.m2\repository\javax\persistence\javax.persistence-api\2.2\javax.persistence-api-2.2.jar;C:\Users\roge5\.m2\repository\net\bytebuddy\byte-buddy\1.10.2\byte-buddy-1.10.2.jar;C:\Users\roge5\.m2\repository\org\jboss\spec\javax\transaction\jboss-transaction-api_1.2_spec\1.1.1.Final\jboss-transaction-api_1.2_spec-1.1.1.Final.jar;C:\Users\roge5\.m2\repository\org\springframework\boot\spring-boot-starter-web\2.1.6.RELEASE\s
+Launcher Type: SUN_STANDARD
+
+Logging:
+Log output configuration:
+#0: stdout all=warning uptime,level,tags
+#1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-10.0.2
+PATH=C:\PROGRA~2\Borland\CBUILD~1\Bin;C:\PROGRA~2\Borland\CBUILD~1\Projects\Bpl;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\TDM-GCC-64\bin;C:\Compiler\bin;C:\Program Files\Git\cmd;C:\Program Files\Apache\Maven\bin;;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\roge5\AppData\Local\GitHubDesktop\bin;C:\Users\roge5\AppData\Local\Microsoft\WindowsApps;C:\Program Files\heroku\bin
+USERNAME=roge5
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 21 Model 19 Stepping 1, AuthenticAMD
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 18362 (10.0.18362.329)
+
+CPU:total 4 (initial active 4) (4 cores per cpu, 1 threads per core) family 21 model 19 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, mmxext, 3dnowpref, lzcnt, sse4a, tsc, tscinvbit, tscinv, bmi1, fma
+
+Memory: 4k page, physical 8328620k(3198928k free), swap 12522924k(38276k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (10.0.2+13) for windows-amd64 JRE (10.0.2+13), built on Jun 28 2018 01:57:56 by "mach5one" with MS VC++ 12.0 (VS2013)
+
+END.

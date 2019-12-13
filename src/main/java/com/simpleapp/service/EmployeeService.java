@@ -1,7 +1,7 @@
 package com.simpleapp.service;
 
 import com.simpleapp.dao.EmployeeDao;
-import com.simpleapp.dto.Employee;
+import com.simpleapp.entity.Employee;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
