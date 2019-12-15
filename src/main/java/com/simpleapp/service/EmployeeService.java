@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -13,9 +14,9 @@ public class EmployeeService {
 
     private EmployeeDao employeeDao;
 
-//    public EmployeeService(EmployeeDao employeeDao) {
-//        this.employeeDao = employeeDao;
-//    }
+    public EmployeeService(EmployeeDao employeeDao) {
+        this.employeeDao = employeeDao;
+    }
 
     public void add(Employee employee) {
         employeeDao.save(employee);
@@ -25,12 +26,15 @@ public class EmployeeService {
         return employeeDao.findAll();
     }
 
+    public Employee findById(Long id) {
+        return employeeDao.findById(id).get();
+    }
+
     public Employee getById(Long id) {
         return employeeDao.getOne(id);
     }
 
     public Employee update(Employee employee) {
-        employeeDao.save(employee);
         return employee;
     }
 

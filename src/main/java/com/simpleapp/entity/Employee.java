@@ -1,10 +1,7 @@
 package com.simpleapp.entity;
 
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Objects;
@@ -15,7 +12,8 @@ public class Employee{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long employeeId;
+    @Column(name = "employee_id")
+    private Long employee_id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -43,8 +41,8 @@ public class Employee{
 
     }
 
-    public Employee(Long employeeId, String firstName, String lastName, Long departmentId, String jobTitle, Gender gender, Date dateOfBirth) throws ParseException {
-        this.employeeId = employeeId;
+    public Employee(Long employee_id, String firstName, String lastName, Long departmentId, String jobTitle, Gender gender, Date dateOfBirth) throws ParseException {
+        this.employee_id = employee_id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.departmentId = departmentId;
@@ -54,12 +52,12 @@ public class Employee{
     }
 
 
-    public Long getEmployeeId() {
-        return employeeId;
+    public Long getEmployee_id() {
+        return employee_id;
     }
 
-    public void setEmployeeId(Long employeeId) {
-        this.employeeId = employeeId;
+    public void setEmployee_id(Long employeeId) {
+        this.employee_id = employeeId;
     }
 
     public String getFirstName() {
@@ -123,7 +121,7 @@ public class Employee{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(employeeId, employee.employeeId) &&
+        return Objects.equals(employee_id, employee.employee_id) &&
                 Objects.equals(firstName, employee.firstName) &&
                 Objects.equals(lastName, employee.lastName) &&
                 Objects.equals(departmentId, employee.departmentId) &&
@@ -135,13 +133,13 @@ public class Employee{
     @Override
     public int hashCode() {
 
-        return Objects.hash(employeeId, firstName, lastName, departmentId, jobTitle, gender, dateOfBirth);
+        return Objects.hash(employee_id, firstName, lastName, departmentId, jobTitle, gender, dateOfBirth);
     }
 
     @Override
     public String toString() {
         return "Employee{" +
-                "employeeId=" + employeeId +
+                "employeeId=" + employee_id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", departmentId=" + departmentId +

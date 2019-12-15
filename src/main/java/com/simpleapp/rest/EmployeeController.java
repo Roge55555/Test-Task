@@ -27,11 +27,11 @@ public class EmployeeController {
     @GetMapping("/employees/{id}")
     @ResponseStatus(HttpStatus.FOUND)
     public Employee getById(@PathVariable("id") Long id) throws NoSuchIdException {
-//        try {
-            return employeeService.getById(id);
-//        }catch (Exception ex){
-//            throw new NoSuchIdException(id, "show");
-//        }
+        try {
+            return employeeService.getById(id);//.orElseThrow(() -> new NoSuchIdException(id ,"show"));
+        }catch (Exception ex){
+            throw new NoSuchIdException(id, "show");
+        }
     }
 
     @PostMapping("/addEmployee")
@@ -43,7 +43,17 @@ public class EmployeeController {
     @PostMapping("/updateEmployee")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void updateEmployee(@RequestBody Employee employee) {
-        employeeService.update(employee);
+        Employee employee_old = employeeService.findById(employee.getEmployee_id());
+
+        employee_old.setFirstName(employee.getFirstName());
+        employee_old.setLastName(employee.getLastName());
+        employee_old.setDepartmentId(employee.getDepartmentId());
+        employee_old.setJobTitle(employee.getJobTitle());
+        employee_old.setGender(employee.getGender());
+        employee_old.setDateOfBirth(employee.getDateOfBirth());
+
+        employeeService.update(employee_old);
+        //return updatedEmployee;
     }
 
     @PostMapping("/delete/{id}")
