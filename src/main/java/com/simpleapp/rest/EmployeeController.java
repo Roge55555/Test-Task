@@ -12,9 +12,8 @@ import java.util.List;
 @RequestMapping("/")
 public class EmployeeController {
 
-    private EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
-//    private EmployeeRepository employeeRepository;
 
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
@@ -49,12 +48,8 @@ public class EmployeeController {
 
     @PostMapping("/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteEmployee(@PathVariable("id") Long id) {               //try to find way for exception
-//        try {
+    public void deleteEmployee(@PathVariable("id") Long id) {
             employeeService.delete(id);
-//        }catch (Exception ex){
-//            throw new NoSuchIdException(id, "delete");
-//        }
 
     }
 }

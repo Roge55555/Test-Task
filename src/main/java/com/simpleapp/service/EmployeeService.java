@@ -4,19 +4,21 @@ import com.simpleapp.dao.EmployeeDao;
 import com.simpleapp.entity.Employee;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class EmployeeService {
 
     private EmployeeDao employeeDao;
 
-    public EmployeeService(EmployeeDao employeeDao) {
-        this.employeeDao = employeeDao;
-    }
+//    public EmployeeService(EmployeeDao employeeDao) {
+//        this.employeeDao = employeeDao;
+//    }
 
     public void add(Employee employee) {
-        employeeDao.add(employee);
+        employeeDao.save(employee);
     }
 
     public List<Employee> findAll() {
@@ -24,15 +26,15 @@ public class EmployeeService {
     }
 
     public Employee getById(Long id) {
-        return employeeDao.getById(id);
+        return employeeDao.getOne(id);
     }
 
     public Employee update(Employee employee) {
-        employeeDao.update(employee);
+        employeeDao.save(employee);
         return employee;
     }
 
     public void delete(Long id) {
-        employeeDao.delete(id);
+        employeeDao.deleteById(id);
     }
 }
